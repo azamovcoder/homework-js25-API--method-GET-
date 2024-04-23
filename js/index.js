@@ -19,7 +19,7 @@ function createUser(data) {
   let users = "";
   data.users.forEach((user) => {
     users += `
-       <div class="e__card">
+       <div class="user__card">
               <img src="${user.image}" alt="">
               <h4>Full name:  ${user.firstName} ${user.lastName} , ${user.maidenName}</h4>
               <p><span>Gender: </span> ${user.gender}</p>
@@ -28,12 +28,13 @@ function createUser(data) {
                 <p><span> Age :</span>${user.age}</p>
               </div>
               <div class = "information">
-              <p><span>Weight:</span>${user.weight}</p>
+              <p><span>Weight: </span>${user.weight}</p>
               <p><span>Height: </span>${user.height} </p>
               <p><span>BloodGroup: </span>${user.bloodGroup} </p>
               <p><span>EyeColor: </span>${user.eyeColor}</p>
               </div>
-              <p><span>University: </span>${user.university}</p>
+              <p class ="university"><span>University: </span>${user.university}</p>
+              <p><span>Address:</span> ${user.company.address.address} ${user.company.address.city}</p>
 
 
           </div>
@@ -41,3 +42,21 @@ function createUser(data) {
   });
   document.querySelector(".wrapper").innerHTML = users;
 }
+
+function createLoadingItem(count) {
+  let loadingItems = "";
+  for (let i = 0; i < count; i++) {
+    loadingItems += `
+    <div class="loading__item">
+      <div class="loading__img bg__animation"></div>
+      <div class="loading__title bg__animation"></div>
+      <div class="loading__title bg__animation"></div>
+    </div>
+
+    `;
+  }
+
+  loading.innerHTML = loadingItems;
+}
+
+createLoadingItem(8);
